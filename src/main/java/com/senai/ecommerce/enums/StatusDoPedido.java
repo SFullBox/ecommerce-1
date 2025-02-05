@@ -1,8 +1,17 @@
 package com.senai.ecommerce.enums;
 
-//public enum StatusDoPedido {
-//	
-//	AGUARDANDO_PAGAMENTO(0),
-//	PAGO(0),
-//	
-//}
+public enum StatusDoPedido {
+	
+	AGUARDANDO_PAGAMENTO,
+	PAGO,
+	ENVIADO,
+	ENTREGUE,
+	CANCELADO;
+	
+	
+	
+	
+	
+	
+	
+}

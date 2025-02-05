@@ -3,9 +3,9 @@ package com.senai.ecommerce.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.senai.ecommerce.entities.Categoria;
+import com.senai.ecommerce.entities.Pagamento;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
 
 }

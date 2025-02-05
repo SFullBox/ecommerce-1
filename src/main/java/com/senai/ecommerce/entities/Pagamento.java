@@ -2,25 +2,21 @@ package com.senai.ecommerce.entities;
 
 import java.time.Instant;
 
-import com.senai.ecommerce.enums.StatusDoPedido;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name = "tb_pedido")
-@Table(name ="tb_pedido")
-public class Pedido {
+@Entity(name="tb_pagamento")
+@Table(name="tb_pagamento")
+public class Pagamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Instant momento;
-	
-	private StatusDoPedido status;
 
 	public Long getId() {
 		return id;
@@ -38,25 +34,16 @@ public class Pedido {
 		this.momento = momento;
 	}
 
-	public StatusDoPedido getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusDoPedido status) {
-		this.status = status;
-	}
-
-	public Pedido(Long id, Instant momento, StatusDoPedido status) {
+	public Pagamento(Long id, Instant momento) {
 		super();
 		this.id = id;
 		this.momento = momento;
-		this.status = status;
 	}
 
-	public Pedido() {
+	public Pagamento() {
 		super();
 	}
 	
 	
-	
+
 }
