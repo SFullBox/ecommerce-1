@@ -1,23 +1,25 @@
 package com.senai.ecommerce.entities;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity(name = "tb_item_do_pedido")
-@Table(name = "tb_em_do_pedido")
+@Table(name = "tb_item_do_pedido")
 public class ItemDoPedido {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@EmbeddedId
+	private ItemDoPedidoPK id = new ItemDoPedidoPK();
 	private Integer quantidade;
 	private Double preco;
-	public Long getId() {
+	
+	
+	
+
+	
+	public ItemDoPedidoPK getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(ItemDoPedidoPK id) {
 		this.id = id;
 	}
 	public Integer getQuantidade() {
@@ -32,15 +34,35 @@ public class ItemDoPedido {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public ItemDoPedido(Long id, Integer quantidade, Double preco) {
+	public ItemDoPedido(Pedido pedido,Produto produto, Integer quantidade, Double preco) {
 		super();
-		this.id = id;
+		id.setPedido(pedido);
+		id.setProduto(produto);
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
 	public ItemDoPedido() {
 		super();
 	}
+	
+	public Pedido getPedido() {
+		return id.getPedido();
+	}
+	
+	public void setPedido(Pedido pedido) {
+		id.setPedido(pedido);
+	}
+	
+	public Produto getProduto() {
+		return id.getProduto();
+	}
+	
+	public void setProduto(Produto produto) {
+		id.setProduto(produto);
+	}
+	
+
+	
 	
 	
 
