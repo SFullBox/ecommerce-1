@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +25,6 @@ public class ProdutoController {
 	
 	@GetMapping
 	public ResponseEntity<List<ProdutoDTO>> buscar(){
-		
-		
 		return ResponseEntity.ok(service.buscarTodos());
 	}
 	
@@ -32,4 +32,19 @@ public class ProdutoController {
 	public ResponseEntity<Page<ProdutoDTO>> buscarPagina(Pageable pagina){
 		return ResponseEntity.ok(service.buscarPagina(pagina));
 	}
+	
+	@PostMapping("/create")
+	public Boolean createProduct(@RequestBody ProdutoDTO data) throws Exception {
+		
+		try {
+			service.PostProductService(data.getNome(), data.getDescricao(), data.getPreco(), data.getImgUrl());
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
+	
 }
