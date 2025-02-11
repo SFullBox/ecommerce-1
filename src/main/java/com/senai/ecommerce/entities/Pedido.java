@@ -36,7 +36,7 @@ public class Pedido {
 
 	
 	@ManyToOne
-	@JoinColumn(name = "client_id")
+	@JoinColumn(name = "cliente_id")
 	private Usuario cliente;
 	
 	@OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)

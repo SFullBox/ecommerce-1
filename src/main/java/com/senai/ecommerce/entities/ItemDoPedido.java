@@ -4,8 +4,8 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity(name = "tb_item_do_pedido")
-@Table(name = "tb_item_do_pedido")
+@Entity(name = "tb_pedido_item")
+@Table(name = "tb_pedido_item")
 public class ItemDoPedido {
 	@EmbeddedId
 	private ItemDoPedidoPK id = new ItemDoPedidoPK();
