@@ -4,6 +4,6 @@ import java.time.Instant;
 
 import com.senai.ecommerce.enums.StatusDoPedido;
 
-public record PedidoDTO( Instant momento, StatusDoPedido status) {
+public record PedidoDTO( Instant momento, StatusDoPedido status,Long clientId) {
 
 }

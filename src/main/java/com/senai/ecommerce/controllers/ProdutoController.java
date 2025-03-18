@@ -47,4 +47,10 @@ public class ProdutoController {
 	
 	}
 	
+	@PostMapping("creating")
+	public ResponseEntity<ProdutoDTO> creating(@RequestBody ProdutoDTO dto){
+		dto = service.creating(dto);
+		return ResponseEntity.ok(dto);
+	}
+	
 }
