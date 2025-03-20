@@ -9,6 +9,8 @@ import com.senai.ecommerce.enums.StatusDoPedido;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,6 +29,7 @@ public class Pedido {
 	private Long id;
 	
 	private Instant momento;
+	
 	
 	private StatusDoPedido status;
 	

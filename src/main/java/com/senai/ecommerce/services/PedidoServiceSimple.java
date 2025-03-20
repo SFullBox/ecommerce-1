@@ -15,7 +15,7 @@ public class PedidoServiceSimple {
 	@Autowired
 	private PedidoSpecificRepository repo;
 	
-	public ResponseEntity createOrderPerUserService(Instant moment, StatusDoPedido status, Long clientId) throws Exception {
+	public ResponseEntity createOrderPerUserService(String moment, StatusDoPedido status, Long clientId) throws Exception {
 		return repo.createOrderPerUser(moment, status, clientId);
 	}
 	

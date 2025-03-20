@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 import javax.sql.DataSource;
 
@@ -22,7 +23,7 @@ public class PedidoSpecificRepository {
 	@Autowired
 	private DataSource dataSource;
 	
-	public ResponseEntity createOrderPerUser(Instant moment, StatusDoPedido status, Long clientId) throws Exception {
+	public ResponseEntity createOrderPerUser(String moment, StatusDoPedido status, Long clientId) throws Exception {
 		
 		String sqlCreate = """
 				INSERT INTO tb_pedido(momento,status,cliente_id) VALUES(?,?,?)
@@ -30,8 +31,9 @@ public class PedidoSpecificRepository {
 		
 		try(Connection con = dataSource.getConnection()) {
 			try(PreparedStatement stmtCreate = con.prepareStatement(sqlCreate)){
-				stmtCreate.setTimestamp(1, Timestamp.from(moment));
-				stmtCreate.setString(2, status.toString());
+				stmtCreate.setString(1,moment);
+				String doStatus = status.toString();
+				stmtCreate.setString(2,status.name());
 				stmtCreate.setLong(3, clientId);
 				
 				stmtCreate.executeUpdate();

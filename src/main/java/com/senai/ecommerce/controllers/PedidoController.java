@@ -8,19 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.ecommerce.dto.PedidoDTO;
-import com.senai.ecommerce.services.PedidoServiceSimple;
+import com.senai.ecommerce.services.PedidoService;
 
 @RestController
-@RequestMapping("/pedido")
+@RequestMapping("/pedidos")
 public class PedidoController {
 	
 	
 	
 	@Autowired
-	private PedidoServiceSimple service;
+	private PedidoService pedidoService;
 	
-	@PostMapping("create")
-	public ResponseEntity createOrderPerUser(@RequestBody PedidoDTO data) throws Exception {
-		return  service.createOrderPerUserService(data.momento(),data.status(),data.clientId());
+	@PostMapping("/creating")
+	public ResponseEntity<PedidoDTO> insert(@RequestBody PedidoDTO pedidoDTO){
+		
+		pedidoDTO = pedidoService.insert(pedidoDTO);
+		return ResponseEntity.ok(pedidoDTO);
+		
 	}
 }
