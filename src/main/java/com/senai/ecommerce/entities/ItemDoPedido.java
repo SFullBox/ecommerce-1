@@ -14,9 +14,7 @@ public class ItemDoPedido {
 	private Integer quantidade;
 	private Double preco;
 	
-	public ItemDoPedido() {
-		
-	}
+	public ItemDoPedido() {}
 	
 	public ItemDoPedido(Pedido pedido, Produto produto, Integer quantidade, Double preco) {
 		id.setPedido(pedido);
