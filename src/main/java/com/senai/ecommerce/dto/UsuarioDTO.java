@@ -11,6 +11,8 @@ public class UsuarioDTO {
 	private String senha;
 	
 	
+	
+	
 	public UsuarioDTO() {
 		
 	}
