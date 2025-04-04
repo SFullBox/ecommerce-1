@@ -16,10 +16,10 @@ public class SecurityConfiguration {
 		return new BCryptPasswordEncoder();
 	}
 	
-	  @Bean //permite a utlilização de todas as rotas
+	  @Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-	    	http.csrf(csrf -> csrf.disable());
-	    	http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+	    	http.csrf(csrf -> csrf.disable()); // está desabilitando o csrf para que tudo seja permitido
+	    	http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll()); // está dizendo que todas as requisições https vão ser permitidas
 	    	return http.build();
 	    }
 
