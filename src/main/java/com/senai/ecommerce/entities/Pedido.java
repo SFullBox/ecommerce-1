@@ -2,7 +2,6 @@ package com.senai.ecommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -27,23 +26,24 @@ public class Pedido {
 	private StatusDoPedido status;
 
 	@ManyToOne
-	@JoinColumn(name = "cliente_id", nullable = false)
+	@JoinColumn(name = "cliente_id")
 	private Usuario cliente;
 	
 	@OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private Pagamento pagamento;
 	
 	@OneToMany(mappedBy = "id.pedido")
-	private Set< ItemDoPedido > items = new HashSet<>();
+	private Set<ItemDoPedido> items = new HashSet<>();
 	
 	public Pedido() {
 
 	}
 
-	public Pedido(Long id, Instant momento, StatusDoPedido status) {
+	public Pedido(Long id, Instant momento, StatusDoPedido status, Usuario cliente) {
 		this.id = id;
 		this.momento = momento;
 		this.status = status;
+		this.cliente = cliente;
 	}
 
 	public Long getId() {
@@ -74,9 +74,14 @@ public class Pedido {
 		return items;
 	}
 
-	public List<Produto> getProduto(){
-		
-		return items.stream().map(x -> x.getProduto()).toList();
+	public void setItems(Set<ItemDoPedido> items) {
+		this.items = items;
+	}
+
+	public Double getTotal() {
+		return items.stream()
+				.mapToDouble(item -> item.getPreco() * item.getQuantidade())
+				.sum();
 	}
 
 	public Usuario getCliente() {
@@ -87,5 +92,11 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	
+	public Pagamento getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
+	}
 }

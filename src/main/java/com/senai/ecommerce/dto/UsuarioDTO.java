@@ -31,11 +31,11 @@ public class UsuarioDTO {
 	
 	public UsuarioDTO(Usuario entity) {
 
-		id = entity.getId();
-		nome = entity.getNome();
-		email = entity.getEmail();
-		telefone = entity.getTelefone();
-		senha = entity.getSenha();
+		this.id = entity.getId();
+		this.nome = entity.getNome();
+		this.email = entity.getEmail();
+		this.telefone = entity.getTelefone();
+		this.senha = entity.getSenha();
 	}
 
 

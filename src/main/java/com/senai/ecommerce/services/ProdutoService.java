@@ -25,32 +25,68 @@ public class ProdutoService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public List<ProdutoDTO> buscarTodos() {
-        List<Produto> produtos = produtoRepository.findAllWithCategorias();
-        return produtos.stream().map(ProdutoDTO::new).collect(Collectors.toList());
+    public List<ProdutoDTO> findAll() {
+        List<Produto> list = produtoRepository.findAll();
+        return list.stream().map(ProdutoDTO::new).collect(Collectors.toList());
     }
 
-    public Page<ProdutoDTO> buscarPagina(Pageable pagina) {
-        Page<Produto> result = produtoRepository.findAll(pagina);
-        return result.map(ProdutoDTO::new);
+    public Page<ProdutoDTO> findAll(Pageable pageable) {
+        Page<Produto> page = produtoRepository.findAll(pageable);
+        return page.map(ProdutoDTO::new);
     }
 
     @Transactional
-    public ProdutoDTO inserir(ProdutoDTO dto) {
-        Produto produto = new Produto();
-        produto.setNome(dto.getNome());
-        produto.setDescricao(dto.getDescricao());
-        produto.setPreco(dto.getPreco());
-        produto.setImgUrl(dto.getImgUrl());
+    public ProdutoDTO insert(ProdutoDTO dto) {
+        Produto entity = new Produto();
+        entity.setNome(dto.getNome());
+        entity.setDescricao(dto.getDescricao());
+        entity.setPreco(dto.getPreco());
+        entity.setImagemUrl(dto.getImagemUrl());
 
-        if (dto.getCategoria() != null) {
-            for (CategoriaDTO cat : dto.getCategoria()) {
-                Categoria categoria = categoriaRepository.getReferenceById(cat.getId());
-                produto.getCategorias().add(categoria);
+        if (dto.getCategorias() != null && !dto.getCategorias().isEmpty()) {
+            for (CategoriaDTO cat : dto.getCategorias()) {
+                Categoria categoria = categoriaRepository.findById(cat.getId())
+                    .orElseThrow(() -> new RuntimeException("Categoria não encontrada!"));
+                entity.getCategorias().add(categoria);
             }
         }
 
-        produto = produtoRepository.save(produto);
+        entity = produtoRepository.save(entity);
+        return new ProdutoDTO(entity);
+    }
+
+    @Transactional
+    public ProdutoDTO update(Long id, ProdutoDTO dto) {
+        Produto entity = produtoRepository.getReferenceById(id);
+        entity.setNome(dto.getNome());
+        entity.setDescricao(dto.getDescricao());
+        entity.setPreco(dto.getPreco());
+        entity.setImagemUrl(dto.getImagemUrl());
+
+        // Limpar categorias existentes
+        entity.getCategorias().clear();
+
+        if (dto.getCategorias() != null && !dto.getCategorias().isEmpty()) {
+            for (CategoriaDTO cat : dto.getCategorias()) {
+                Categoria categoria = categoriaRepository.findById(cat.getId())
+                    .orElseThrow(() -> new RuntimeException("Categoria não encontrada!"));
+                entity.getCategorias().add(categoria);
+            }
+        }
+
+        entity = produtoRepository.save(entity);
+        return new ProdutoDTO(entity);
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        produtoRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public ProdutoDTO findById(Long id) {
+        Produto produto = produtoRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
         return new ProdutoDTO(produto);
     }
 }

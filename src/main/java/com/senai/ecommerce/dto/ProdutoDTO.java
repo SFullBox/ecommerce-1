@@ -11,18 +11,18 @@ public class ProdutoDTO {
     private String nome;
     private String descricao;
     private Double preco;
-    private String imgUrl;
-    private List<CategoriaDTO> categoria;
+    private String imagemUrl;
+    private List<CategoriaDTO> categorias;
 
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(Long id, String nome, String descricao, Double preco, String imgUrl) {
+    public ProdutoDTO(Long id, String nome, String descricao, Double preco, String imagemUrl) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.imgUrl = imgUrl;
+        this.imagemUrl = imagemUrl;
     }
 
     public ProdutoDTO(Produto produto) {
@@ -30,8 +30,8 @@ public class ProdutoDTO {
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.preco = produto.getPreco();
-        this.imgUrl = produto.getImgUrl();
-        this.categoria = produto.getCategorias().stream()
+        this.imagemUrl = produto.getImagemUrl();
+        this.categorias = produto.getCategorias().stream()
                                 .map(CategoriaDTO::new)
                                 .collect(Collectors.toList());
     }
@@ -71,21 +71,21 @@ public class ProdutoDTO {
         this.preco = preco;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImagemUrl() {
+        return imagemUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
-	public List<CategoriaDTO> getCategoria() {
-		return categoria;
-	}
+    public List<CategoriaDTO> getCategorias() {
+        return categorias;
+    }
 
-	public void setCategoria(List<CategoriaDTO> categoria) {
-		this.categoria = categoria;
-	}
+    public void setCategorias(List<CategoriaDTO> categorias) {
+        this.categorias = categorias;
+    }
     
     
 }

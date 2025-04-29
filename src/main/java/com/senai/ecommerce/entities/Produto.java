@@ -31,29 +31,26 @@ public class Produto {
     private String descricao;
     private Double preco;
     @Column(columnDefinition = "TEXT")
-    private String imgUrl;
+    private String imagemUrl;
 
     @ManyToMany
-    @JoinTable(name = "tb_produto_categoria", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+    @JoinTable(name = "tb_produto_categoria", 
+        joinColumns = @JoinColumn(name = "produto_id"), 
+        inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     private Set<Categoria> categorias = new HashSet<>();
 
     @OneToMany(mappedBy = "id.produto")
     private Set<ItemDoPedido> items = new HashSet<>();
 
-    public Produto(ProdutoDTO produtoDTO) {
-        this.id = produtoDTO.getId();
-        this.nome = produtoDTO.getNome();
-        this.descricao = produtoDTO.getDescricao();
-        this.preco = produtoDTO.getPreco();
-        this.imgUrl = produtoDTO.getImgUrl();
+    public Produto() {
     }
 
-    public Produto() {
+    public Produto(Long id, String nome, String descricao, Double preco, String imagemUrl) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.imgUrl = imgUrl;
+        this.imagemUrl = imagemUrl;
     }
 
     public Long getId() {
@@ -88,12 +85,12 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImagemUrl() {
+        return imagemUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
     public Set<ItemDoPedido> getItems() {
@@ -112,6 +109,7 @@ public class Produto {
 		this.categorias = categorias;
 	}
 
-    
-	
+    public void setItems(Set<ItemDoPedido> items) {
+        this.items = items;
+    }
 }

@@ -1,74 +1,85 @@
 package com.senai.ecommerce.dto;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.senai.ecommerce.entities.Pedido;
 import com.senai.ecommerce.entities.StatusDoPedido;
 
 public class PedidoDTO {
 
-	
 	private Long id;
 	private Instant momento;
 	private StatusDoPedido status;
-	private Long clienteId;
+	private UsuarioDTO cliente;
+	private List<ItemPedidoDTO> items = new ArrayList<>();
+	private Double total;
 	
 	public PedidoDTO() {
 		
 	}
 	
-	public PedidoDTO(Long id, Instant momento, StatusDoPedido status, Long clienteId) {
+	public PedidoDTO(Pedido pedido) {
+		this.id = pedido.getId();
+		this.momento = pedido.getMomento();
+		this.status = pedido.getStatus();
+		this.cliente = new UsuarioDTO(pedido.getCliente());
+		this.total = pedido.getTotal();
 		
-		this.id = id;
-		this.momento = momento;
-		this.status = status;
-		this.clienteId = clienteId;
-	}
-	
-	
-	public PedidoDTO(Pedido entity) {
-		
-		id = entity.getId();
-		momento = entity.getMomento();
-		status = entity.getStatus();
-		clienteId = (entity.getCliente() != null) ? entity.getCliente().getId() : null; // Se existe um cliente o get retorna um objeto, o código pega o ID desse cliente e o atribui a clienteId. Caso contrário, clienteId recebe null. 
+		// Converter os itens do pedido para DTO
+		this.items = pedido.getItems().stream()
+			.map(ItemPedidoDTO::new)
+			.collect(Collectors.toList());
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public Instant getMomento() {
 		return momento;
 	}
 
-
 	public void setMomento(Instant momento) {
 		this.momento = momento;
 	}
-
 
 	public StatusDoPedido getStatus() {
 		return status;
 	}
 
-
 	public void setStatus(StatusDoPedido status) {
 		this.status = status;
 	}
 
-	public Long getClienteId() {
-		return clienteId;
+	public UsuarioDTO getCliente() {
+		return cliente;
 	}
 
-	public void setClienteId(Long clienteId) {
-		this.clienteId = clienteId;
+	public void setCliente(UsuarioDTO cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<ItemPedidoDTO> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemPedidoDTO> items) {
+		this.items = items;
+	}
+
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
 	}
 	
 	
