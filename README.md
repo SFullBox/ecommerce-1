@@ -4,80 +4,96 @@
   <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="200"/>
 </div>
 
-## 📋 Sobre o Projeto
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">📋 Sobre o Projeto</h2>
+  <p style="color: #34495e;">API de e-commerce desenvolvida com Spring Boot para gerenciamento de produtos, pedidos e usuários.</p>
+</div>
 
-API de e-commerce desenvolvida com Spring Boot para gerenciamento de produtos, pedidos e usuários.
+<div style="background-color: #fff0f5; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">🚀 Tecnologias Utilizadas</h2>
+  <ul style="color: #34495e;">
+    <li>Java 21</li>
+    <li>Spring Boot 3.1.0</li>
+    <li>Spring Data JPA</li>
+    <li>MySQL 8.0</li>
+    <li>Maven</li>
+  </ul>
+</div>
 
-## 🚀 Tecnologias Utilizadas
+<div style="background-color: #f0fff0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">🛠️ Funcionalidades</h2>
+  <ul style="color: #34495e;">
+    <li>✅ Cadastro de usuários</li>
+    <li>🛒 Gerenciamento de produtos</li>
+    <li>📦 Controle de pedidos</li>
+    <li>🔐 Autenticação de usuários</li>
+  </ul>
+</div>
 
-- Java 21
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Maven
-
-## 🛠️ Funcionalidades
-
-- ✅ Cadastro de usuários
-- 🛒 Gerenciamento de produtos
-- 📦 Controle de pedidos
-- 🔐 Autenticação de usuários
-
-## 📝 Endpoints
-
-### Usuários
-```
+<div style="background-color: #fffaf0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">📝 Endpoints</h2>
+  
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Usuários</h3>
+    <pre style="color: #34495e;">
 POST /usuarios - Criar usuário
 GET /usuarios - Listar usuários
 GET /usuarios/{id} - Buscar usuário por ID
 PUT /usuarios/{id} - Atualizar usuário
-DELETE /usuarios/{id} - Deletar usuário
-```
+DELETE /usuarios/{id} - Deletar usuário</pre>
+  </div>
 
-### Produtos
-```
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Produtos</h3>
+    <pre style="color: #34495e;">
 POST /produtos - Criar produto
 GET /produtos - Listar produtos
 GET /produtos/{id} - Buscar produto por ID
 PUT /produtos/{id} - Atualizar produto
-DELETE /produtos/{id} - Deletar produto
-```
+DELETE /produtos/{id} - Deletar produto</pre>
+  </div>
 
-### Pedidos
-```
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Pedidos</h3>
+    <pre style="color: #34495e;">
 POST /pedidos - Criar pedido
 GET /pedidos - Listar pedidos
 GET /pedidos/{id} - Buscar pedido por ID
 PUT /pedidos/{id} - Atualizar pedido
 DELETE /pedidos/{id} - Deletar pedido
 GET /pedidos/cliente/{clienteId} - Listar pedidos do cliente
-GET /pedidos/{id}/itens - Listar itens do pedido
-```
+GET /pedidos/{id}/itens - Listar itens do pedido</pre>
+  </div>
+</div>
 
-## 🎨 Exemplos de Requisições
-
-### Criar Usuário
-```json
+<div style="background-color: #f0ffff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">🎨 Exemplos de Requisições</h2>
+  
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Criar Usuário</h3>
+    <pre style="color: #34495e;">
 {
     "nome": "João Silva",
     "email": "joao@email.com",
     "telefone": "11999999999",
     "senha": "123456"
-}
-```
+}</pre>
+  </div>
 
-### Criar Produto
-```json
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Criar Produto</h3>
+    <pre style="color: #34495e;">
 {
     "nome": "Smartphone XYZ",
     "descricao": "Smartphone de última geração",
     "preco": 1999.99,
     "imagemUrl": "https://exemplo.com/smartphone.jpg"
-}
-```
+}</pre>
+  </div>
 
-### Criar Pedido
-```json
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Criar Pedido</h3>
+    <pre style="color: #34495e;">
 {
     "cliente": {
         "id": 1
@@ -89,36 +105,39 @@ GET /pedidos/{id}/itens - Listar itens do pedido
             "preco": 1999.99
         }
     ]
-}
-```
+}</pre>
+  </div>
+</div>
 
-## 🚀 Como Executar
+<div style="background-color: #ffe4e1; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">🚀 Como Executar</h2>
+  <ol style="color: #34495e;">
+    <li>Clone o repositório</li>
+    <li>Configure o banco de dados no `application.properties`</li>
+    <li>Execute o projeto:
+      <pre>mvn spring-boot:run</pre>
+    </li>
+  </ol>
+</div>
 
-1. Clone o repositório
-2. Configure o banco de dados no `application.properties`
-3. Execute o projeto:
-```bash
-mvn spring-boot:run
-```
+<div style="background-color: #e6e6fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">📊 Status do Projeto</h2>
+  <div style="display: flex; gap: 10px;">
+    <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
+    <img src="https://img.shields.io/badge/Java-21-blue" alt="Java">
+    <img src="https://img.shields.io/badge/Spring%20Boot-3.1.0-green" alt="Spring Boot">
+  </div>
+</div>
 
-## 📊 Status do Projeto
-
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![Java](https://img.shields.io/badge/Java-17-blue)
-![Spring](https://img.shields.io/badge/Spring%20Boot-3.1.0-green)
-
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <h2 style="color: #2c3e50;">🤝 Contribuição</h2>
+  <p style="color: #34495e;">Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.</p>
+</div>
 
 ---
 
-<div align="center">
+<div align="center" style="background-color: #fff0f5; padding: 20px; border-radius: 10px;">
   <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="200"/>
-  <p>Feito com ❤️ por você!</p>
+  <p style="color: #2c3e50;">Feito com ❤️ por você!</p>
 </div>
 
