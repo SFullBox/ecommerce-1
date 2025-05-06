@@ -54,10 +54,6 @@ public class PedidoService {
 		pedido.setMomento(Instant.now());
 		pedido.setStatus(StatusDoPedido.AGUARDANDO_PAGAMENTO);
 		
-		Usuario usuario = usuarioRepository.findById(dto.getCliente().getId())
-			.orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-		pedido.setCliente(usuario);
-
 		pedido = pedidoRepository.save(pedido);
 
 		for (ItemPedidoDTO itemDto : dto.getItems()) {
@@ -100,7 +96,7 @@ public class PedidoService {
 	public List<PedidoDTO> findByCliente(Long clienteId) {
 		List<Pedido> pedidos = pedidoRepository.findByClienteId(clienteId);
 		List<Pedido> pedidosComItens = pedidoRepository.findPedidosWithItems(pedidos);
-		return pedidosComItens.stream().map(PedidoDTO::new).collect(Collectors.toList());
+		return pedidosComItens.stream().map(p -> new PedidoDTO(p)).collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)
@@ -114,12 +110,6 @@ public class PedidoService {
 			entity.setStatus(dto.getStatus());
 		}
 		
-		if (dto.getCliente() != null && dto.getCliente().getId() != null) {
-			Usuario usuario = usuarioRepository.findById(dto.getCliente().getId())
-				.orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-			entity.setCliente(usuario);
-		}
-
 		if (dto.getItems() != null && !dto.getItems().isEmpty()) {
 			entity.getItems().clear();
 			for (ItemPedidoDTO itemDto : dto.getItems()) {
