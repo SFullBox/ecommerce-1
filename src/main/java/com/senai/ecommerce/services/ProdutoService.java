@@ -26,7 +26,7 @@ public class ProdutoService {
     private CategoriaRepository categoriaRepository;
 
     public List<ProdutoDTO> findAll() {
-        List<Produto> list = produtoRepository.findAll();
+        List<Produto> list = produtoRepository.findAllWithCategorias();
         return list.stream().map(ProdutoDTO::new).collect(Collectors.toList());
     }
 

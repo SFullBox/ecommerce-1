@@ -1,6 +1,7 @@
 package com.senai.ecommerce.services;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import com.senai.ecommerce.dto.ItemPedidoDTO;
 import com.senai.ecommerce.dto.PedidoDTO;
@@ -54,6 +56,11 @@ public class PedidoService {
 		pedido.setMomento(Instant.now());
 		pedido.setStatus(StatusDoPedido.AGUARDANDO_PAGAMENTO);
 		
+		// Busca o cliente pelo ID
+		Usuario cliente = usuarioRepository.findById(dto.getClienteId())
+			.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+		pedido.setCliente(cliente);
+		
 		pedido = pedidoRepository.save(pedido);
 
 		for (ItemPedidoDTO itemDto : dto.getItems()) {
@@ -94,9 +101,21 @@ public class PedidoService {
 
 	@Transactional(readOnly = true)
 	public List<PedidoDTO> findByCliente(Long clienteId) {
+		// Verifica se o cliente existe
+		Usuario cliente = usuarioRepository.findById(clienteId)
+			.orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+			
+		// Busca os pedidos do cliente com seus itens
 		List<Pedido> pedidos = pedidoRepository.findByClienteId(clienteId);
+		if (pedidos.isEmpty()) {
+			return new ArrayList<>();
+		}
+		
+		// Busca os pedidos com seus itens
 		List<Pedido> pedidosComItens = pedidoRepository.findPedidosWithItems(pedidos);
-		return pedidosComItens.stream().map(p -> new PedidoDTO(p)).collect(Collectors.toList());
+		return pedidosComItens.stream()
+			.map(PedidoDTO::new)
+			.collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)

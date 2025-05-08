@@ -15,6 +15,7 @@ public class PedidoDTO {
 	private StatusDoPedido status;
 	private List<ItemPedidoDTO> items = new ArrayList<>();
 	private Double total;
+	private Long clienteId;
 	
 	public PedidoDTO() {
 		
@@ -25,6 +26,7 @@ public class PedidoDTO {
 		this.momento = pedido.getMomento();
 		this.status = pedido.getStatus();
 		this.total = pedido.getTotal();
+		this.clienteId = pedido.getCliente().getId();
 		
 		// Converter os itens do pedido para DTO
 		this.items = pedido.getItems().stream()
@@ -70,6 +72,14 @@ public class PedidoDTO {
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+	
+	public Long getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
 	}
 	
 	
