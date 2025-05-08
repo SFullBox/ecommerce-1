@@ -1,11 +1,11 @@
 # 🛍️ E-commerce API
 
-<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">📋 Sobre o Projeto</h2>
   <p style="color: #34495e;">API de e-commerce desenvolvida com Spring Boot para gerenciamento de produtos, pedidos e usuários.</p>
 </div>
 
-<div style="background-color: #fff0f5; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">🚀 Tecnologias Utilizadas</h2>
   <ul style="color: #34495e;">
     <li>Java 21</li>
@@ -16,7 +16,7 @@
   </ul>
 </div>
 
-<div style="background-color: #f0fff0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">🛠️ Funcionalidades</h2>
   <ul style="color: #34495e;">
     <li>✅ Cadastro de usuários</li>
@@ -26,9 +26,9 @@
   </ul>
 </div>
 
-<div style="background-color: #fffaf0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">📝 Endpoints</h2>
-  
+
   <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
     <h3 style="color: #2c3e50;">Usuários</h3>
     <pre style="color: #34495e;">
@@ -60,18 +60,18 @@ DELETE /pedidos/{id} - Deletar pedido
 GET /pedidos/cliente/{clienteId} - Listar pedidos do cliente
 GET /pedidos/{id}/itens - Listar itens do pedido</pre>
   </div>
-</div>
 
- <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
     <h3 style="color: #2c3e50;">Pagamento</h3>
     <pre style="color: #34495e;">
-POST /pagamentos/pedido/{id} - Fazer o Pagamento, nao precisa de corpo
+POST /pagamentos/pedido/{id} - Fazer o pagamento, não precisa de corpo
+    </pre>
   </div>
 </div>
 
-<div style="background-color: #f0ffff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">🎨 Exemplos de Requisições</h2>
-  
+
   <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
     <h3 style="color: #2c3e50;">Criar Usuário</h3>
     <pre style="color: #34495e;">
@@ -112,7 +112,7 @@ POST /pagamentos/pedido/{id} - Fazer o Pagamento, nao precisa de corpo
   </div>
 </div>
 
-<div style="background-color: #ffe4e1; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">🚀 Como Executar</h2>
   <ol style="color: #34495e;">
     <li>Clone o repositório</li>
@@ -123,7 +123,7 @@ POST /pagamentos/pedido/{id} - Fazer o Pagamento, nao precisa de corpo
   </ol>
 </div>
 
-<div style="background-color: #e6e6fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #f1c40f;">
   <h2 style="color: #2c3e50;">📊 Status do Projeto</h2>
   <div style="display: flex; gap: 10px;">
     <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
@@ -131,6 +131,3 @@ POST /pagamentos/pedido/{id} - Fazer o Pagamento, nao precisa de corpo
     <img src="https://img.shields.io/badge/Spring%20Boot-3.1.0-green" alt="Spring Boot">
   </div>
 </div>
-
-
-
