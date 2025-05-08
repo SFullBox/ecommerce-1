@@ -1,9 +1,5 @@
 # 🛍️ E-commerce API
 
-<div align="center">
-  <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="200"/>
-</div>
-
 <div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
   <h2 style="color: #2c3e50;">📋 Sobre o Projeto</h2>
   <p style="color: #34495e;">API de e-commerce desenvolvida com Spring Boot para gerenciamento de produtos, pedidos e usuários.</p>
@@ -129,15 +125,5 @@ GET /pedidos/{id}/itens - Listar itens do pedido</pre>
   </div>
 </div>
 
-<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
-  <h2 style="color: #2c3e50;">🤝 Contribuição</h2>
-  <p style="color: #34495e;">Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.</p>
-</div>
 
----
-
-<div align="center" style="background-color: #fff0f5; padding: 20px; border-radius: 10px;">
-  <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="200"/>
-  <p style="color: #2c3e50;">Feito com ❤️ por você!</p>
-</div>
 
