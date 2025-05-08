@@ -62,6 +62,13 @@ GET /pedidos/{id}/itens - Listar itens do pedido</pre>
   </div>
 </div>
 
+ <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+    <h3 style="color: #2c3e50;">Pagamento</h3>
+    <pre style="color: #34495e;">
+POST /pagamentos/pedido/{id} - Fazer o Pagamento, nao precisa de corpo
+  </div>
+</div>
+
 <div style="background-color: #f0ffff; padding: 20px; border-radius: 10px; margin: 20px 0;">
   <h2 style="color: #2c3e50;">🎨 Exemplos de Requisições</h2>
   
