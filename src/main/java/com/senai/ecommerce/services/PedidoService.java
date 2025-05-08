@@ -107,7 +107,30 @@ public class PedidoService {
 
 	private void copyDtoToEntity(PedidoDTO dto, Pedido entity) {
 		if (dto.getStatus() != null) {
-			entity.setStatus(dto.getStatus());
+			// Verifica se a mudança de status é válida
+			boolean mudancaValida = false;
+			
+			// Fluxo principal: AGUARDANDO_PAGAMENTO -> PAGO -> ENVIADO -> ENTREGUE
+			if (entity.getStatus() == StatusDoPedido.AGUARDANDO_PAGAMENTO && 
+				(dto.getStatus() == StatusDoPedido.PAGO || dto.getStatus() == StatusDoPedido.CANCELADO)) {
+				mudancaValida = true;
+			} else if (entity.getStatus() == StatusDoPedido.PAGO && 
+				dto.getStatus() == StatusDoPedido.ENVIADO) {
+				mudancaValida = true;
+			} else if (entity.getStatus() == StatusDoPedido.ENVIADO && 
+				dto.getStatus() == StatusDoPedido.ENTREGUE) {
+				mudancaValida = true;
+			}
+			
+			if (mudancaValida) {
+				entity.setStatus(dto.getStatus());
+			} else {
+				throw new RuntimeException(
+					"Não é possível alterar o status do pedido. " +
+					"O fluxo permitido é: AGUARDANDO_PAGAMENTO -> PAGO -> ENVIADO -> ENTREGUE, " +
+					"ou AGUARDANDO_PAGAMENTO -> CANCELADO"
+				);
+			}
 		}
 		
 		if (dto.getItems() != null && !dto.getItems().isEmpty()) {
