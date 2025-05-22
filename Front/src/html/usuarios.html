@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Usuários - Sistema E-commerce</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/usuarios.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="index.html" class="nav-button">← Voltar ao Menu</a>
+        </div>
+        
+        <div class="user-info">
+            <span id="bemVindo">Usuários do Sistema</span>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+        
+        <h1>Lista de Usuários</h1>
+        
+        <div id="lista-usuarios" class="lista-usuarios">
+            <p class="loading">Carregando usuários...</p>
+        </div>
+    </div>
+    
+    <!-- Modal para visualizar detalhes do usuário -->
+    <div class="modal hidden" id="modalDetalhes">
+        <div class="modal-content">
+            <button id="fecharDetalhes" class="close">&times;</button>
+            <h2>Detalhes do Usuário</h2>
+            <div id="detalhesUsuario"></div>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/usuarios.js"></script>
+</body>
+</html>

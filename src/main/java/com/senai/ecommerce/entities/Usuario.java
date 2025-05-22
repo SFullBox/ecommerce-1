@@ -1,14 +1,11 @@
 package com.senai.ecommerce.entities;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -21,9 +18,15 @@ public class Usuario {
 	private String email;
 	private String telefone;
 	private String senha;
-	
-	@OneToMany(mappedBy= "cliente")
+
+	@ManyToMany
 	private List<Pedido> pedidos = new ArrayList<>();
+
+	@ManyToMany
+	@JoinTable(name = "tb_usuario_role",
+			joinColumns = @JoinColumn(name = "usuario_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<>();
 
 	public Usuario() {
 

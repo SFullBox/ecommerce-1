@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Clientes</title>
+    <link rel="stylesheet" href="../css/clientes.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="index.html" class="nav-button">← Voltar ao Menu</a>
+            <a href="pedidos.html" class="nav-button">Ir para Pedidos</a>
+        </div>
+        <h1>Clientes</h1>
+        <button id="btnNovoCliente">Novo Cliente</button>
+        <div id="lista-clientes" class="lista-clientes"></div>
+    </div>
+
+    <!-- Modal para criar/editar cliente -->
+    <div class="modal hidden" id="modalCliente">
+        <div class="modal-content">
+            <button id="fecharModal" class="close">&times;</button>
+            <h2 id="modalTitulo">Novo Cliente</h2>
+            <form id="formCliente">
+                <input type="hidden" id="clienteId" />
+                
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" required />
+
+                <label for="endereco">Endereço:</label>
+                <textarea id="endereco" required></textarea>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de detalhes do cliente -->
+    <div class="modal hidden" id="modalDetalhes">
+        <div class="modal-content">
+            <button id="fecharDetalhes" class="close">&times;</button>
+            <div id="detalhesCliente"></div>
+            <div id="pedidosCliente" class="pedidos-cliente">
+                <h3>Pedidos do Cliente</h3>
+                <div id="lista-pedidos-cliente"></div>
+                <button id="btnNovoPedidoCliente" class="btn-secondary">Criar Novo Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/clientes.js"></script>
+</body>
+</html>

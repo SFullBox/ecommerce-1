@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="../css/pedidos.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="navigation">
+        <a href="index.html" class="nav-button">← Voltar ao Menu</a>
+        <a href="clientes.html" class="nav-button">Ir para Clientes</a>
+    </div>
+    <h1>Pedidos</h1>
+    <button id="btnNovoPedido">Novo Pedido</button>
+    <div id="lista-pedidos" class="lista-pedidos"></div>
+</div>
+
+<!-- Modal para criar/editar pedido -->
+<div class="modal hidden" id="modalPedido">  <!-- id correto -->
+    <div class="modal-content">
+        <button id="fecharModal" class="close">&times;</button> <!-- coloquei id fecharModal -->
+        <h2 id="modalTitulo">Novo Pedido</h2>
+        <form id="formPedido"> <!-- id correto -->
+            <input type="hidden" id="pedidoId" />
+            <label for="clienteId">ID do Cliente:</label>
+            <input type="number" id="clienteId" required />
+
+            <label for="dataPedido">Data do Pedido:</label>
+            <input type="date" id="dataPedido" required /> <!-- agora existe esse input -->
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de detalhes do pedido -->
+<div class="modal hidden" id="modalDetalhes">
+    <div class="modal-content">
+        <button id="fecharDetalhes" class="close">&times;</button> <!-- id fecharDetalhes -->
+        <div id="detalhesPedido"></div> <!-- id detalhesPedido -->
+    </div>
+</div>
+
+<script src="../js/pedidos.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sistema de E-commerce</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <span id="bemVindo">Bem-vindo</span>
+            <button id="btnLogout" class="btn-logout">Sair</button>
+        </div>
+        
+        <h1>Sistema de E-commerce</h1>
+        
+        <div class="menu-cards">
+            <div class="menu-card" onclick="window.location.href='perfil.html'">
+                <h2>Meu Perfil</h2>
+                <p>Visualizar e editar seus dados</p>
+                <div class="icon">👤</div>
+            </div>
+            <div class="menu-card" onclick="window.location.href='usuarios.html'">
+                <h2>Usuários</h2>
+                <p>Ver todos os usuários</p>
+                <div class="icon">👥</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>

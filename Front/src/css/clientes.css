@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.nav-button {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.nav-button:hover {
+  background-color: #2980b9;
+}
+
+#btnNovoCliente {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#btnNovoCliente:hover {
+  background-color: #27ae60;
+}
+
+.lista-clientes {
+  margin-top: 20px;
+}
+
+.cliente-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+.cliente-card:hover {
+  background-color: #f9f9f9;
+}
+
+.cliente-card button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cliente-card button.btnExcluir {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.cliente-card button.btnEditar {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.cliente-card button:hover {
+  opacity: 0.8;
+}
+
+/* Estilos para os modais */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #999;
+}
+
+.close:hover {
+  color: #333;
+}
+
+/* Estilos para o formulário */
+form {
+  margin-top: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+form button[type="submit"] {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form button[type="submit"]:hover {
+  background-color: #27ae60;
+}
+
+/* Estilos para detalhes do cliente */
+#detalhesCliente {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+#detalhesCliente p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.pedidos-cliente {
+  padding-top: 10px;
+}
+
+.pedidos-cliente h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#lista-pedidos-cliente {
+  margin-bottom: 15px;
+}
+
+.pedido-cliente-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.btn-secondary {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #2980b9;
+}
